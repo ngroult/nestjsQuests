@@ -6,6 +6,11 @@ import { Article } from './article.entity/article.entity';
 export class ArticlesController {
     constructor(private service: ArticlesService) {}
 
+    @Get()
+    getAll() {
+        return this.service.getArticles();
+    }
+
     @Get(':id')
     get(@Param() params) {
         return this.service.getArticle(params.id);
